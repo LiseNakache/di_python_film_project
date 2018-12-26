@@ -78,7 +78,7 @@ WSGI_APPLICATION = 'film_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'imdidb.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'filmdb.sqlite3'),
     }
 }
 
