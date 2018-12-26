@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light ">
+  <a class="navbar-brand" href="#">IMDI</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+    {% if request.user.is_authenticated %}
+      <li class="nav-item active">
+        <a class="nav-link" href="{% url 'film_app:homepage' %}">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'film_app:index'%}">Accueil</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'account_app:profile' user.id%}">Profile</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav mr-auto navbar-right ">
+      <li class="nav-item">
+          <span class="navbar-text">
+                Login en tant que <strong>{{ request.user.username }}</strong>
+          </span>
+      </li>
+       <li class="nav-item">
+         <a class="nav-link" href="{% url 'account_app:logout' %}">Logout</a>
+      </li>
+    </ul>
+    {% else %}
+    <ul class="navbar-nav mr-auto">
+         <li class="nav-item">
+            <span class="navbar-text">
+                Vous n'êtes pas connecté à notre site, vous n'avez pas le droit d'être là-->
+                    <a href="{% url 'film_app:index' %}">Revenir à l'accueil</a>
+            </span>
+         </li>
+    </ul>
+    {% endif %}
+  </div>
+</nav>

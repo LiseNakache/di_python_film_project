@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include "partials/head.html" with title="Login" %}
+</head>
+
+<body>
+      {% include "partials/navbar_homepage.html" %}
+
+<div class="container-fluid">
+      {% if not request.user.is_authenticated %}
+      {% else %}
+       <h1>Tous les nouveaux films</h1>
+      {% endif %}
+</div>
+
+
+{% include "partials/footer.html" %}
+</body>
+</html>
