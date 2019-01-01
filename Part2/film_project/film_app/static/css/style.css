@@ -1,0 +1,25 @@
+body {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+  background-color: aliceblue;
+}
+
+footer {
+    background-color: aliceblue;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    }
+
+
+/*/////CARD HOMEPAGE ////*/
+
+.card_film {
+    width: 18rem;
+    margin: 10px 10px
+}

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% include "partials/head.html" with title="Homepage" %}
+</head>
+
+<body>
+      {% include "partials/navbar_homepage.html" %}
+
+<div class="container-fluid">
+      {% if not request.user.is_authenticated %}
+      {% else %}
+       <h1>Tous les nouveaux films</h1>
+    <div class="row">
+        {% for producer in producers %}
+        <div class="card card_film">
+          <div class="card-body">
+            <h5 class="card-title">{{producer.film.title|title}} BY {{producer.first_name|title}} {{producer.last_name|title}}</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Date de sortie: {{producer.film.release_date|date:"d M Y"}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Categorie: {{producer.film.category.name|title}}</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Pays: {{producer.film.country.name|title}}</h6>
+              {% if request.user.is_superuser %}
+                <a href="{% url 'film_app:editProducer' producer.id %}" class="card-link">Modifier le réalisateur</a><hr>
+                <a href="{% url 'film_app:editFilm' producer.film.id %}"class="card-link">Modifier le film</a>
+              {% endif %}
+          </div>
+        </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+</div>
+
+
+{% include "partials/footer.html" %}
+</body>
+</html>
