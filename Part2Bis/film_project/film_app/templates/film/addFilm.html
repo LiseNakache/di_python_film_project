@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% load crispy_forms_tags %}
+  {% include "partials/head.html" with title="Add Film" %}
+</head>
+<body>
+{% include "partials/navbar_homepage.html" %}
+
+<div class="container">
+  <h1>Add Film</h1>
+
+  <form action="" method="POST" enctype="multipart/form-data">
+    <!--{{ add_film_form.as_p}}-->
+     <!--{{ add_poster_form.as_p}}-->
+    {% csrf_token %}
+    <div class="row">
+      <div class="col-6">
+        {{ add_film_form.title|as_crispy_field }}
+      </div>
+      <div class="col-6">
+        {{ add_film_form.release_date|as_crispy_field }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-6">
+        {{ add_film_form.category|as_crispy_field }}
+      </div>
+      <div class="col-6">
+        {{ add_film_form.country|as_crispy_field }}
+      </div>
+    </div>
+    {{ add_poster_form.image|as_crispy_field }}
+    {{ add_poster_form.explanation_text|as_crispy_field }}
+    <input type="submit" name="submit" class="btn btn-info" value="Ajouter">
+  </form>
+</div>
+</body>
+</html>

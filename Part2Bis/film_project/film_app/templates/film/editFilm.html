@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  {% include "partials/head.html" with title="Edit Film" %}
+</head>
+<body>
+{% include "partials/navbar_homepage.html" %}
+<div class="container">
+  {% if response %}
+    <div class="alert alert-success" role="alert">{{response}}</div>
+  {% endif %}
+  <h1>Edit Film</h1>
+
+  <form action="" method="POST">
+    {{ edit_film_form.as_p }}
+    {% csrf_token %}
+    <input type="submit" name="submit" value="Modifier">
+  </form>
+</div>
+</body>
+</html>
